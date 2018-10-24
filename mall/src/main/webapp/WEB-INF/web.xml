@@ -4,5 +4,16 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
   version="4.0">
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<description>
+  	</description>
+  	<display-name>AddMember</display-name>
+  	<servlet-name>AddMember</servlet-name>
+  	<servlet-class>cafe.jjdev.mall.controller.AddMember</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AddMember</servlet-name>
+  	<url-pattern>/AddMember</url-pattern>
+  </servlet-mapping>
   
 </web-app>

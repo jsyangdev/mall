@@ -5,4 +5,4 @@
 ⓒAddMember.doGet -> ⓥaddMember.jsp
 
 3. 회원가입액션
-ⓒAddMember.doPost -> ⓜMemberDao.insertMember -> re: ⓒgetMemberList
+ⓒAddMember.doPost -> ⓜMemberDao.insertMember -> re: ⓒlogin
