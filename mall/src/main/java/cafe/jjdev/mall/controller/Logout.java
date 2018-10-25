@@ -7,11 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/index")
-public class IndexController extends HttpServlet {
+@WebServlet("/logout")
+public class Logout extends HttpServlet {
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("IndexController doGet");	
-		request.getRequestDispatcher("WEB-INF/jsp/index.jsp").forward(request, response);
+		request.getSession().invalidate(); 	// ¼¼¼ÇÆÄ±«
+		response.sendRedirect(request.getContextPath()+"/login");
 	}
 
 }
