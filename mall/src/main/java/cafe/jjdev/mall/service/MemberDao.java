@@ -7,30 +7,42 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MemberDao {
+	/**
+	 * µå¶óÀÌ¹ö ·Îµù, DB¿¬°á °øÅë ¸Þ¼­µå
+	 * @return
+	 */
 	private Connection getConnection() {
         Connection connection = null;
         String jdbcDriver = "jdbc:mysql://localhost:3306/mall?useUnicode=true&characterEncoding=euckr";
         String dbUser = "root";
         String dbPass = "java0000";                     
         try {                                            
-            //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½Îµï¿½                                    
+            // µå¶óÀÌ¹ö ·Îµù                              
             Class.forName("com.mysql.jdbc.Driver");
-            //DBï¿½ï¿½ï¿½ï¿½
+            // DB¿¬°á
             connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-        } catch (ClassNotFoundException e) {            //forName Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ClassNotFoundExceptionï¿½ï¿½ï¿½Ü°ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
-            e.printStackTrace();                        //ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, eï¿½ï¿½Ã¼ ï¿½ï¿½ printStackTraceï¿½Þ¼ï¿½ï¿½å¸¦ È£ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®    
+        } catch (ClassNotFoundException e) {            
+            e.printStackTrace();                      
         }                                                
-        catch (SQLException e) {                        //SQLExceptionï¿½ï¿½ï¿½Ü°ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
-            e.printStackTrace();                        //ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, eï¿½ï¿½Ã¼ ï¿½ï¿½ printStackTraceï¿½Þ¼ï¿½ï¿½å¸¦ È£ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+        catch (SQLException e) {                      
+            e.printStackTrace();                 
         }    
 		return connection;
 	}
-	
+	/**
+	 * ¸â¹ö Á¶È¸ ¸Þ¼­µå
+	 * @param id
+	 * @return
+	 */
 	public Member selectMember(String id) {
 		
 		return null;
 	}
-	
+	/**
+	 * Æû¿¡¼­ ³Ñ¾î¿Â ÀÔ·Âµ¥ÀÌÅÍ¿Í DB¿¡ ÀúÀåµÈ µ¥ÀÌÅÍ¸¦ ºñ±³ÇÏ¿© ÀÏÄ¡ÇÏ´ÂÁö ¾Æ´ÑÁö ºÒ¸®¾ð Å¸ÀÔÀ¸·Î ¸®ÅÏÇÏ´Â ¸Þ¼­µå
+	 * @param member
+	 * @return
+	 */
 	public boolean login(Member member) {
 		Connection conn = getConnection();
 		PreparedStatement pstmt = null;
@@ -54,7 +66,12 @@ public class MemberDao {
 		return returnValue;
 		
 	}
-	
+	/**
+	 * ¸â¹ö¸¦ °¡ÀÔ½ÃÅ°´Â ¸Þ¼­µå
+	 * @param member
+	 * @return
+	 * @throws SQLException
+	 */
 	public int insertMember(Member member) throws SQLException {
 		Connection conn = getConnection();
 		PreparedStatement pstmt = null;
@@ -62,7 +79,7 @@ public class MemberDao {
 			pstmt = conn.prepareStatement("INSERT INTO member(id, pw, level) VALUES(?,?,?)");
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2, member.getPw());
-			pstmt.setInt(3, member.getLevel());		// 0: ï¿½ï¿½, 1: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			pstmt.setInt(3, member.getLevel());		// 0: °í°´, 1: °ü¸®ÀÚ
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();

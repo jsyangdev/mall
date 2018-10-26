@@ -9,18 +9,27 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/ModifyMember")
 public class ModifyMember extends HttpServlet {
-	// ìˆ˜ì • í¼
+	// È¸¿øÁ¤º¸ ¼öÁ¤ Æû
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//  ë¡œê·¸ì¸ í™•ì¸(ë¡œê·¸ì¸ ì•ˆ ë˜ì–´ ìˆìœ¼ë©´ ë¦¬ë””ë ‰íŠ¸)
-		// MemberDao.selectMember()
-		// forward
+		//  ·Î±×ÀÎ È®ÀÎ
+		if(request.getSession().getAttribute("loginMember") == null) {
+			System.out.println("-------·Î±×ÀÎ »óÅÂ°¡ ¾Æ´Õ´Ï´Ù(login.jsp·Î forward)-------");
+			response.sendRedirect(request.getContextPath()+"/login");
+		} else {
+			System.out.println("-------·Î±×ÀÎ ÁßÀÔ´Ï´Ù-------");
+			
 		
+		// MemberDao.selectMember()
+		
+		// forward
+			
+		}
 	}
-	// ìˆ˜ì • ì•¡ì…˜
+	// ¼öÁ¤¾×¼Ç
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ë¡œê·¸ì¸ í™•ì¸
+		// ·Î±×ÀÎ È®ÀÎ
 		// MemberDao.updateMember()
-		// ë¡œê·¸ì•„ì›ƒ  redirect
+		// ·Î±×¾Æ¿ô  redirect
 	}
 
 }

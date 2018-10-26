@@ -1,8 +1,22 @@
-1. ¸ŞÀÎÆäÀÌÁö
-¨ÏIndexController.doGet -> ¨âindex.jsp
+# 10/18
+1. ë©”ì¸í˜ì´ì§€ 
+â“’IndexController.doGet -> â“¥index.jsp
 
-2. È¸¿ø°¡ÀÔÆû
-¨ÏAddMember.doGet -> ¨âaddMember.jsp
+2. íšŒì›ê°€ì… í¼
+â“’AddMember.doGet -> â“¥addMember.jsp
 
-3. È¸¿ø°¡ÀÔ¾×¼Ç
-¨ÏAddMember.doPost -> ¨ÙMemberDao.insertMember -> re: ¨Ïlogin
+3. íšŒì›ê°€ì… ì•¡ì…˜
+â“’AddMember.doPost -> â“œMemberDao.insertMember() -> â“’login
+
+# 10/25
+4. ë¡œê·¸ì¸ í¼
+â“’Login.doGet-> â“¥login.jsp
+
+5. ë¡œê·¸ì¸ ì•¡ì…˜
+â“’Login.doGet-> â“œMemberDao.login() -> success:â“’index / fail:â“’login
+
+# 10/26
+6. íšŒì›ì •ë³´ ë³´ê¸°
+
+
+7. íšŒì›ì •ë³´ ìˆ˜ì •

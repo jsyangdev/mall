@@ -16,14 +16,14 @@ public class GetMember extends HttpServlet {
 	private MemberDao memberDao;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		if(session.getAttribute("loginMember")==null) {
+		if(session.getAttribute("loginMember") == null) {
 			//redirect
+			
 		} else {
 			Member member = memberDao.selectMember("");
 			request.setAttribute("member",member);
 			
 		}
-		
 	}
 
 }
