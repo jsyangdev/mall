@@ -8,20 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<%-- Hello <%=request.getAttribute("model") %> --%> 
-	<br>
-	Hello ${model}
-	<br>
-	<!--  if(){} -->
-	<c:if test="${member.level == 0}">
-		일반고객
+	<c:if test="${loginMember != null}">
+		${loginMember}님 반갑습니다.
+		<a href="${pageContext.request.contextPath}/logout">로그아웃</a>
 	</c:if>
-	<c:if test="${member.level == 1}">
-		관리자
-	</c:if>
-	<!-- for(String s : arr) -->
-	<c:forEach var="str" items="${list}">
-		<div>${str}</div>
-	</c:forEach>
+	<c:if test="${member.level == null}">	
+		<a href="${pageContext.request.contextPath}/login">로그인</a>
+	</c:if>		
 </body>
 </html>

@@ -13,17 +13,22 @@ public class MemberDao {
         String dbUser = "root";
         String dbPass = "java0000";                     
         try {                                            
-            //µå¶óÀÌ¹ö·Îµù                                    
+            //ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½Îµï¿½                                    
             Class.forName("com.mysql.jdbc.Driver");
-            //DB¿¬°á
+            //DBï¿½ï¿½ï¿½ï¿½
             connection = DriverManager.getConnection(jdbcDriver, dbUser, dbPass);
-        } catch (ClassNotFoundException e) {            //forName Å¬·¡½º¸¦ Ã£À» ¼ö ¾ø´Â ClassNotFoundException¿¹¿Ü°¡ ¹ß»ýÇÒ ¼ö ÀÖ´Ù.
-            e.printStackTrace();                        //¿¹¿Ü ¹ß»ýÇÒ °æ¿ì, e°´Ã¼ ³» printStackTrace¸Þ¼­µå¸¦ È£ÃâÇÏ¿© ¿¡·¯ ÇÁ¸°Æ®    
+        } catch (ClassNotFoundException e) {            //forName Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ClassNotFoundExceptionï¿½ï¿½ï¿½Ü°ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
+            e.printStackTrace();                        //ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, eï¿½ï¿½Ã¼ ï¿½ï¿½ printStackTraceï¿½Þ¼ï¿½ï¿½å¸¦ È£ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®    
         }                                                
-        catch (SQLException e) {                        //SQLException¿¹¿Ü°¡ ¹ß»ýÇÒ ¼ö ÀÖ´Ù.
-            e.printStackTrace();                        //¿¹¿Ü ¹ß»ýÇÒ °æ¿ì, e°´Ã¼ ³» printStackTrace¸Þ¼­µå¸¦ È£ÃâÇÏ¿© ¿¡·¯ ÇÁ¸°Æ®
+        catch (SQLException e) {                        //SQLExceptionï¿½ï¿½ï¿½Ü°ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½.
+            e.printStackTrace();                        //ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½, eï¿½ï¿½Ã¼ ï¿½ï¿½ printStackTraceï¿½Þ¼ï¿½ï¿½å¸¦ È£ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
         }    
 		return connection;
+	}
+	
+	public Member selectMember(String id) {
+		
+		return null;
 	}
 	
 	public boolean login(Member member) {
@@ -57,7 +62,7 @@ public class MemberDao {
 			pstmt = conn.prepareStatement("INSERT INTO member(id, pw, level) VALUES(?,?,?)");
 			pstmt.setString(1, member.getId());
 			pstmt.setString(2, member.getPw());
-			pstmt.setInt(3, member.getLevel());		// 0: °í°´, 1: °ü¸®ÀÚ
+			pstmt.setInt(3, member.getLevel());		// 0: ï¿½ï¿½, 1: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();

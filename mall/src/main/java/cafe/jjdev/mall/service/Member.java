@@ -1,33 +1,30 @@
 package cafe.jjdev.mall.service;
 
 public class Member {
-	private int no;
 	private String id;
-	private int level;
 	private String pw;
+	private int level;
 	
-	public int getNo() {
-		return no;
-	}
-	public void setNo(int no) {
-		this.no = no;
-	}
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
+		System.out.println(id+"<--id setId Member.java");
 		this.id = id;
-	}
-	public int getLevel() {
-		return level;
-	}
-	public void setLevel(int level) {
-		this.level = level;
 	}
 	public String getPw() {
 		return pw;
 	}
 	public void setPw(String pw) {
+		System.out.println(pw+"<--pw setPw Member.java");
 		this.pw = pw;
-	}	
+	}
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		System.out.println(level+"<--level setLevel Member.java");
+		this.level = level;
+	}
+	
 }
